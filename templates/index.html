@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Fashion</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background:#f4f4f4;
+            margin:0;
+        }
+
+        header{
+            background:black;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .contenedor{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            border-radius:10px;
+            overflow:hidden;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .card img{
+            width:100%;
+            height:300px;
+            object-fit:cover;
+        }
+
+        .info{
+            padding:15px;
+            text-align:center;
+        }
+
+        .precio{
+            color:green;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        button{
+            background:black;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1>Tienda Fashion</h1>
+    <p>Ropa moderna y elegante</p>
+</header>
+
+<div class="contenedor">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+
+        <div class="info">
+            <h2>Polo Negro</h2>
+            <p class="precio">S/. 45</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+        <div class="info">
+            <h2>Zapatillas</h2>
+            <p class="precio">S/. 180</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
