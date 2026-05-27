@@ -1,97 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Fashion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Tienda Fashion</title>
 
-        body{
-            font-family: Arial;
-            background:#f4f4f4;
-            margin:0;
-        }
+<style>
 
-        header{
-            background:black;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .contenedor{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-            padding:20px;
-        }
+body{
+font-family:Arial;
+background:#f4f4f4;
+}
 
-        .card{
-            background:white;
-            border-radius:10px;
-            overflow:hidden;
-            box-shadow:0 4px 10px rgba(0,0,0,0.2);
-        }
+/* NAVBAR */
 
-        .card img{
-            width:100%;
-            height:300px;
-            object-fit:cover;
-        }
+nav{
+background:#111;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+}
 
-        .info{
-            padding:15px;
-            text-align:center;
-        }
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
 
-        .precio{
-            color:green;
-            font-size:22px;
-            font-weight:bold;
-        }
+nav li{
+cursor:pointer;
+transition:0.3s;
+}
 
-        button{
-            background:black;
-            color:white;
-            border:none;
-            padding:10px 20px;
-            border-radius:5px;
-        }
+nav li:hover{
+color:#ff4081;
+}
 
-    </style>
+/* HEADER */
+
+header{
+background:#222;
+color:white;
+text-align:center;
+padding:60px;
+}
+
+header h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+/* PRODUCTOS */
+
+.contenedor{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.info{
+padding:20px;
+text-align:center;
+}
+
+.precio{
+color:green;
+font-size:25px;
+font-weight:bold;
+margin:15px;
+}
+
+button{
+background:black;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#ff4081;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:30px;
+}
+
+</style>
 
 </head>
+
 <body>
 
+<nav>
+
+<h2>Fashion Store</h2>
+
+<ul>
+<li>Inicio</li>
+<li>Productos</li>
+<li>Ofertas</li>
+<li>Contacto</li>
+</ul>
+
+</nav>
+
 <header>
-    <h1>Tienda Fashion</h1>
-    <p>Ropa moderna y elegante</p>
+
+<h1>Tienda Fashion</h1>
+
+<p>Ropa moderna y elegante</p>
+
 </header>
 
 <div class="contenedor">
 
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<div class="card">
 
-        <div class="info">
-            <h2>Polo Negro</h2>
-            <p class="precio">S/. 45</p>
-            <button>Comprar</button>
-        </div>
-    </div>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<div class="info">
 
-        <div class="info">
-            <h2>Zapatillas</h2>
-            <p class="precio">S/. 180</p>
-            <button>Comprar</button>
-        </div>
-    </div>
+<h2>Polo Blanco</h2>
+
+<p class="precio">S/. 45</p>
+
+<button>Comprar</button>
 
 </div>
 
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+<div class="info">
+
+<h2>Zapatillas Urbanas</h2>
+
+<p class="precio">S/. 180</p>
+
+<button>Comprar</button>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+
+<div class="info">
+
+<h2>polo de mujer</h2>
+
+<p class="precio">S/. 120</p>
+
+<button>Comprar</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<p>© 2026 Fashion Store</p>
+
+</footer>
+
 </body>
+
 </html>
