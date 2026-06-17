@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Mi Cuenta</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+.login{
+display:flex;
+justify-content:center;
+align-items:center;
+height:80vh;
+}
+
+.formulario{
+
+width:420px;
+
+background:white;
+
+padding:50px;
+
+border-radius:30px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.formulario input{
+
+width:100%;
+
+padding:18px;
+
+margin-bottom:20px;
+
+}
+
+.formulario button{
+
+width:100%;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2 class="logo">
+
+Fashion Store
+
+</h2>
+
+<ul>
+
+<li><a href="/productos">Categorías</a></li>
+
+<li><a href="/login">Mi Cuenta</a></li>
+
+<li>
+
+<a href="/carrito">
+
+🛒 Carrito ({{ cantidad }})
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+<section class="login">
+
+<div class="formulario">
+
+<h1>
+
+Mi Cuenta
+
+</h1>
+
+<form method="POST">
+
+<input
+type="email"
+name="correo"
+placeholder="Correo">
+
+<input
+type="password"
+name="clave"
+placeholder="Contraseña">
+
+<button
+type="submit">
+
+Ingresar
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+
+© 2026 Fashion Store
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

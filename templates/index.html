@@ -2,209 +2,341 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tienda Fashion</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<style>
+<title>Fashion Store</title>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial;
-background:#f4f4f4;
-}
-
-/* NAVBAR */
-
-nav{
-background:#111;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 40px;
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:20px;
-}
-
-nav li{
-cursor:pointer;
-transition:0.3s;
-}
-
-nav li:hover{
-color:#ff4081;
-}
-
-/* HEADER */
-
-header{
-background:#222;
-color:white;
-text-align:center;
-padding:60px;
-}
-
-header h1{
-font-size:50px;
-margin-bottom:10px;
-}
-
-/* PRODUCTOS */
-
-.contenedor{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-padding:40px;
-}
-
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card img{
-width:100%;
-height:300px;
-object-fit:cover;
-}
-
-.info{
-padding:20px;
-text-align:center;
-}
-
-.precio{
-color:green;
-font-size:25px;
-font-weight:bold;
-margin:15px;
-}
-
-button{
-background:black;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:30px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#ff4081;
-}
-
-/* FOOTER */
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:25px;
-margin-top:30px;
-}
-
-</style>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
 
-<h2>Fashion Store</h2>
+<h2 class="logo">
+
+Fashion Store
+
+</h2>
 
 <ul>
-<li>Inicio</li>
-<li>Productos</li>
-<li>Ofertas</li>
-<li>Contacto</li>
+
+<li><a href="/productos">Categorias</a></li>
+
+<li><a href="/login">Mi Cuenta</a></li>
+
+<li>
+
+<a href="/carrito">
+
+🛒 Carrito ({{ cantidad }})
+
+</a>
+
+</li>
+
 </ul>
 
 </nav>
 
+<!-- PORTADA -->
+
 <header>
 
-<h1>Tienda Fashion</h1>
+<div class="texto">
 
-<p>Ropa moderna y elegante</p>
+<h1>
+
+Nueva
+<span>Colección</span>
+
+</h1>
+
+<p>
+
+Descubre camisetas,
+shorts y polos deportivos.
+
+</p>
+
+<a href="/productos">
+
+<button class="boton">
+
+Ver Catálogo
+
+</button>
+
+</a>
+
+</div>
+
+<img
+class="hero-img"
+
+src="{{ url_for('static', filename='img/portada.jpg') }}">
 
 </header>
 
+<!-- DESTACADOS -->
+
+<h2 class="titulo">
+
+Productos Destacados
+
+</h2>
+
 <div class="contenedor">
 
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-
-<div class="info">
-
-<h2>Polo Blanco</h2>
-
-<p class="precio">S/. 45</p>
-
-<button>Comprar</button>
-
-</div>
-
-</div>
+<!-- PRODUCTO 1 -->
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<img
+src="{{ url_for('static', filename='img/camiseta1.webp') }}">
 
 <div class="info">
 
-<h2>Zapatillas Urbanas</h2>
+<h2>
 
-<p class="precio">S/. 180</p>
+Camiseta Bélgica
 
-<button>Comprar</button>
+</h2>
+
+<p class="precio">
+
+S/.120
+
+</p>
+
+<a href="/agregar/1">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
 
 </div>
 
 </div>
+
+<!-- PRODUCTO 2 -->
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+<img
+src="{{ url_for('static', filename='img/sh1.webp') }}">
 
 <div class="info">
 
-<h2>polo de mujer</h2>
+<h2>
 
-<p class="precio">S/. 120</p>
+Short 
 
-<button>Comprar</button>
+</h2>
+
+<p class="precio">
+
+S/.70
+
+</p>
+
+<a href="/agregar/9">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- PRODUCTO 3 -->
+
+<div class="card">
+
+<img
+src="{{ url_for('static', filename='img/polo1.webp') }}">
+
+<div class="info">
+
+<h2>
+
+Polo Camisero
+
+</h2>
+
+<p class="precio">
+
+S/.90
+
+</p>
+
+<a href="/agregar/17"></a>
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- PRODUCTO 4 -->
+
+<div class="card">
+
+<img
+src="{{ url_for('static', filename='img/camiseta2.webp') }}">
+
+<div class="info">
+
+<h2>
+
+Camiseta Brasil
+
+</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/2">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- PRODUCTO 5 -->
+
+<div class="card">
+
+<img
+src="{{ url_for('static', filename='img/sh2.webp') }}">
+
+<div class="info">
+
+<h2>
+
+Short 
+
+</h2>
+
+<p class="precio">
+
+S/.75
+
+</p>
+
+<a href="/agregar/10">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- PRODUCTO 6 -->
+
+<div class="card">
+
+<img
+src="{{ url_for('static', filename='img/polo2.webp') }}">
+
+<div class="info">
+
+<h2>
+
+Polo Camisero
+
+</h2>
+
+<p class="precio">
+
+S/.85
+
+</p>
+
+<a href="/agregar/18">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
 
 </div>
 
 </div>
 
 </div>
+
+<!-- INFO -->
+
+<section
+class="info-extra">
+
+<h2>
+
+Calidad y Estilo
+
+</h2>
+
+<p>
+
+Explora nuestra colección
+de ropa.
+
+</p>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
 
-<p>© 2026 Fashion Store</p>
+<p>
+
+© 2026 Fashion Store
+
+</p>
 
 </footer>
 

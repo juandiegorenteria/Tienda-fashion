@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Carrito</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2 class="logo">
+
+Fashion Store
+
+</h2>
+
+<ul>
+
+<li><a href="/productos">Categorías</a></li>
+
+<li><a href="/login">Mi Cuenta</a></li>
+
+<li>
+
+<a href="/carrito">
+
+🛒 Carrito ({{ cantidad }})
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+
+<!-- TITULO -->
+
+<h1 class="titulo">
+
+🛒 Mi Carrito
+
+</h1>
+
+
+<!-- PRODUCTOS -->
+
+{% if carrito %}
+
+<div class="contenedor">
+
+{% for p in carrito %}
+
+<div class="card">
+
+<img
+src="{{ url_for(
+'static',
+filename='img/' + p.imagen
+) }}">
+
+
+<div class="info">
+
+<h2>
+
+{{ p.nombre }}
+
+</h2>
+
+
+<p class="precio">
+
+S/.{{ p.precio }}
+
+</p>
+
+
+<a href="/eliminar/{{ p.id }}">
+
+<button>
+
+Eliminar
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<h2 class="titulo">
+
+Total: S/.{{ total }}
+
+</h2>
+
+<br><br>
+
+<div
+style="text-align:center;">
+
+<a href="/vaciar">
+
+<button>
+
+Vaciar carrito
+
+</button>
+
+</a>
+
+</div>
+
+{% else %}
+
+<h2 class="titulo">
+
+Tu carrito está vacío
+
+</h2>
+
+{% endif %}
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 Fashion Store
+
+</p>
+
+</footer>
+
+</body>
+
+</html>

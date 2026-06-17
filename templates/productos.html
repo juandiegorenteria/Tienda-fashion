@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Categorías</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<h2 class="logo">
+
+Fashion Store
+
+</h2>
+
+<ul>
+
+<li><a href="/productos">Categorías</a></li>
+
+<li><a href="/login">Mi Cuenta</a></li>
+
+<li>
+
+<a href="/carrito">
+
+🛒 Carrito ({{ cantidad }})
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+
+<!-- TITULO -->
+
+<h1 class="titulo">
+
+Categorías
+
+</h1>
+
+
+<!-- CAMISETAS -->
+
+<h2 class="titulo">
+
+Camisetas
+
+</h2>
+
+<div class="contenedor">
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta1.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta Bélgica</h2>
+
+<p class="precio">
+
+S/.120
+
+</p>
+
+<a href="/agregar/1">
+    
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta2.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta Brasil</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/2">
+
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta3.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta Croacia</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/3">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta4.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta España</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/4">
+
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta5.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta Francia</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/5">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta6.jpeg') }}">
+
+<div class="info">
+
+<h2>Camiseta Inglaterra</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/6">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta7.webp') }}">
+
+<div class="info">
+
+<h2>Camiseta Uruguay</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/7">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/camiseta8.avif') }}">
+
+<div class="info">
+
+<h2>Camiseta Argentina</h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/8">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SHORTS -->
+
+<h2 class="titulo">
+
+Shorts
+
+</h2>
+
+<div class="contenedor">
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh1.webp') }}">
+
+<div class="info">
+
+<h2>Short</h2>
+
+<p class="precio">
+
+S/.140
+
+</p>
+
+<a href="/agregar/9">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh2.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/10">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh3.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/11">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh4.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/12">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh5.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/13">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh6.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/14">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh7.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.130
+
+</p>
+
+<a href="/agregar/15">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/sh8.webp') }}">
+
+<div class="info">
+
+<h2>Short </h2>
+
+<p class="precio">
+
+S/.150
+
+</p>
+
+<a href="/agregar/16">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- POLOS -->
+
+<h2 class="titulo">
+
+Polos
+
+</h2>
+
+<div class="contenedor">
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo1.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.90
+
+</p>
+
+<a href="/agregar/17">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo2.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.85
+
+</p>
+
+<a href="/agregar/18">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo3.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.85
+
+</p>
+
+<a href="/agregar/19">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo4.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.85
+
+</p>
+
+<a href="/agregar/20">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo5.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.85
+
+</p>
+
+<a href="/agregar/21">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo6.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.90
+
+</p>
+
+<a href="/agregar/22">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo7.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.95
+
+</p>
+
+<a href="/agregar/23">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+<div class="card">
+
+<img src="{{ url_for('static', filename='img/polo8.webp') }}">
+
+<div class="info">
+
+<h2>Polo Camisero</h2>
+
+<p class="precio">
+
+S/.100
+
+</p>
+
+<a href="/agregar/24">
+
+<button>
+
+Agregar al carrito
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 Fashion Store
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
