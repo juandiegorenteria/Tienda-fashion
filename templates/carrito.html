@@ -17,7 +17,8 @@ href="{{ url_for('static', filename='css/style.css') }}">
 
 <body>
 
-<!-- NAVBAR -->
+
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
@@ -29,9 +30,25 @@ Fashion Store
 
 <ul>
 
-<li><a href="/productos">Categorías</a></li>
+<li>
 
-<li><a href="/login">Mi Cuenta</a></li>
+<a href="/productos">
+
+Categorías
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/login">
+
+Mi Cuenta
+
+</a>
+
+</li>
 
 <li>
 
@@ -48,7 +65,8 @@ Fashion Store
 </nav>
 
 
-<!-- TITULO -->
+
+<!-- ================= TITULO ================= -->
 
 <h1 class="titulo">
 
@@ -57,15 +75,27 @@ Fashion Store
 </h1>
 
 
-<!-- PRODUCTOS -->
 
 {% if carrito %}
 
-<div class="contenedor">
+
+<!-- ================= CONTENEDOR CARRITO ================= -->
+
+<div class="carrito-box">
+
+
+<div class="carrito-grid">
+
+
+<!-- IZQUIERDA → PRODUCTOS -->
+
+<div>
+
 
 {% for p in carrito %}
 
-<div class="card">
+<div class="producto">
+
 
 <img
 src="{{ url_for(
@@ -74,7 +104,9 @@ filename='img/' + p.imagen
 ) }}">
 
 
-<div class="info">
+
+<div>
+
 
 <h2>
 
@@ -90,60 +122,144 @@ S/.{{ p.precio }}
 </p>
 
 
-<a href="/eliminar/{{ p.id }}">
-
-<button>
-
-Eliminar
-
-</button>
-
+<a href="/eliminar/{{ p.id }}" class="btn-eliminar">
+    Eliminar
 </a>
 
+
 </div>
+
 
 </div>
 
 {% endfor %}
 
+
 </div>
 
 
-<h2 class="titulo">
 
-Total: S/.{{ total }}
+<!-- DERECHA → RESUMEN -->
+
+<div class="resumen">
+
+
+<h2>
+
+Resumen del pedido
 
 </h2>
 
-<br><br>
+<br>
 
-<div
-style="text-align:center;">
 
-<a href="/vaciar">
+<p>
 
-<button>
+Cantidad:
 
-Vaciar carrito
+<b>
+
+{{ cantidad }}
+
+</b>
+
+</p>
+
+
+<br>
+
+
+<p>
+
+Total:
+
+</p>
+
+
+<h1 class="total">
+
+S/.{{ total }}
+
+</h1>
+
+
+<br>
+
+
+<a href="/dashboard">
+
+<button class="btn-pagar">
+
+Proceder a pagar 
 
 </button>
 
 </a>
 
+
+<br><br>
+
+
+<a href="/vaciar">
+
+<button>
+
+Vaciar carrito 🗑️
+
+</button>
+
+</a>
+
+
 </div>
+
+
+</div>
+
+
+</div>
+
 
 {% else %}
 
-<h2 class="titulo">
 
-Tu carrito está vacío
+
+<!-- ================= CARRITO VACIO ================= -->
+
+<div
+style="
+text-align:center;
+margin-top:80px;
+">
+
+<h2>
+
+Tu carrito está vacío 🛒
 
 </h2>
+
+<br>
+
+
+<a href="/productos">
+
+<button>
+
+Ir a comprar
+
+</button>
+
+</a>
+
+
+</div>
+
 
 {% endif %}
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -154,6 +270,7 @@ Tu carrito está vacío
 </p>
 
 </footer>
+
 
 </body>
 

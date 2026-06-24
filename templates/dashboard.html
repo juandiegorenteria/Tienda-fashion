@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Finalizar Pedido</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+
+.checkout{
+max-width:1200px;
+margin:50px auto;
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+}
+
+.metodos{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.pago{
+border:2px solid #ddd;
+padding:25px;
+border-radius:20px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
+
+.pago:hover{
+border-color:#5e2ced;
+}
+
+.pago img{
+width:80px;
+height:50px;
+object-fit:contain;
+}
+
+.detalle{
+margin-top:25px;
+padding:30px;
+background:#f7f1ff;
+border-radius:20px;
+line-height:2;
+}
+
+.input{
+width:100%;
+padding:18px;
+border-radius:15px;
+border:1px solid #ddd;
+margin-top:10px;
+font-size:16px;
+}
+
+.total{
+font-size:50px;
+color:#5e2ced;
+font-weight:bold;
+}
+
+.confirmar{
+width:100%;
+margin-top:30px;
+padding:22px;
+font-size:22px;
+background:#111;
+color:white;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.3s;
+}
+
+.confirmar:hover{
+background:#5e2ced;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<h2 class="logo">
+Fashion Store
+</h2>
+
+<ul>
+
+<li>
+<a href="/productos">
+Categorías
+</a>
+</li>
+
+<li>
+<a href="/carrito">
+🛒 Carrito ({{ cantidad }})
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<section class="checkout">
+
+<h1>Finalizar pedido</h1>
+
+<br>
+
+<div class="grid">
+
+<div>
+
+<h3>TU PEDIDO</h3>
+
+<br>
+
+<p>
+Usuario:
+<b>{{ usuario }}</b>
+</p>
+
+<br>
+
+<p>
+Productos:
+{{ cantidad }}
+</p>
+
+<br>
+
+<div class="total">
+S/. {{ total }}
+</div>
+
+</div>
+
+<div>
+
+<h3>SELECCIONE SU MÉTODO DE PAGO</h3>
+
+<br>
+
+<div class="metodos">
+
+<div class="pago" onclick="mostrarPago('yape')">
+<img src="{{ url_for('static', filename='img/yape.png') }}">
+<br><br>
+Yape
+</div>
+
+<div class="pago" onclick="mostrarPago('plin')">
+<img src="{{ url_for('static', filename='img/plin.png') }}">
+<br><br>
+Plin
+</div>
+
+<div class="pago" onclick="mostrarPago('tarjeta')">
+<img src="{{ url_for('static', filename='img/tarjeta.png') }}">
+<br><br>
+Tarjeta
+</div>
+
+<div class="pago" onclick="mostrarPago('efectivo')">
+<img src="{{ url_for('static', filename='img/efectivo.png') }}">
+<br><br>
+Efectivo
+</div>
+
+</div>
+
+<div id="infoPago"></div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<h3>📍 Dirección de entrega</h3>
+
+<form action="/confirmar_pedido" method="POST">
+
+<input
+class="input"
+type="text"
+name="direccion"
+placeholder="Av. Fernando Wiese"
+required>
+
+<button
+type="submit"
+class="confirmar">
+
+Confirmar pedido 🎉
+
+</button>
+
+</form>
+
+</section>
+
+<script>
+
+function mostrarPago(tipo){
+
+let total="{{ total }}";
+
+let html="";
+
+if(tipo==="yape"){
+
+html=`
+
+<div class="detalle">
+
+📱 Transfiere al número:
+
+<br>
+
+<h2>987 654 321</h2>
+
+A nombre de:
+<b>Juan Diego Renteria</b>
+
+<br>
+
+Luego de pagar envía el comprobante.
+
+</div>
+
+`;
+
+}
+
+if(tipo==="plin"){
+
+html=`
+
+<div class="detalle">
+
+💠 Transfiere al número:
+
+<br>
+
+<h2>987 654 321</h2>
+
+A nombre de:
+<b>Juan Diego Renteria</b>
+
+<br>
+
+Luego de pagar envía el comprobante.
+
+</div>
+
+`;
+
+}
+
+if(tipo==="tarjeta"){
+
+html=`
+
+<div class="detalle">
+
+💳 Datos de tu tarjeta
+
+<br><br>
+
+<input
+class="input"
+placeholder="Número de tarjeta">
+
+<br>
+
+<div style="display:flex;gap:15px">
+
+<input
+class="input"
+placeholder="MM/AA">
+
+<input
+class="input"
+placeholder="CVV">
+
+</div>
+
+<br>
+
+<input
+class="input"
+placeholder="Nombre en la tarjeta">
+
+</div>
+
+`;
+
+}
+
+if(tipo==="efectivo"){
+
+html=`
+
+<div class="detalle">
+
+💵 Pago contra entrega
+
+<br><br>
+
+Te cobraremos cuando llegue tu pedido 🏠
+
+<br><br>
+
+Ten el monto exacto si puedes:
+
+<br><br>
+
+<h2>S/. ${total}</h2>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("infoPago").innerHTML=html;
+
+}
+
+</script>
+
+</body>
+
+</html>

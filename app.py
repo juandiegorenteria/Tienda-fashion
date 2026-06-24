@@ -6,6 +6,8 @@ app = Flask(__name__)
 app.secret_key = "tienda123"
 
 
+# PRODUCTOS
+
 productos_lista = [
 
 {"id":1,"nombre":"Camiseta Bélgica","precio":120,"imagen":"camiseta1.webp"},
@@ -83,7 +85,8 @@ def agregar(id):
 
     session["carrito"] = carrito
 
-    return redirect("/carrito")
+    # vuelve a productos para seguir comprando
+    return redirect("/productos")
 
 
 @app.route('/carrito')
@@ -94,23 +97,21 @@ def carrito():
         []
     )
 
-    prendas=[]
+    prendas = []
 
-    total=0
+    total = 0
 
     for id in ids:
 
         for p in productos_lista:
 
-            if p["id"]==id:
+            if p["id"] == id:
 
-                prendas.append(
-                    p
-                )
+                prendas.append(p)
 
-                total+=p["precio"]
+                total += p["precio"]
 
-    cantidad=len(ids)
+    cantidad = len(ids)
 
     return render_template(
         "carrito.html",
@@ -123,18 +124,16 @@ def carrito():
 @app.route('/eliminar/<int:id>')
 def eliminar(id):
 
-    carrito=session.get(
+    carrito = session.get(
         "carrito",
         []
     )
 
     if id in carrito:
 
-        carrito.remove(
-            id
-        )
+        carrito.remove(id)
 
-    session["carrito"]=carrito
+    session["carrito"] = carrito
 
     return redirect(
         "/carrito"
@@ -144,7 +143,7 @@ def eliminar(id):
 @app.route('/vaciar')
 def vaciar():
 
-    session["carrito"]=[]
+    session["carrito"] = []
 
     return redirect(
         "/carrito"
@@ -160,22 +159,22 @@ methods=[
 )
 def login():
 
-    cantidad=len(
+    cantidad = len(
         session.get(
             "carrito",
             []
         )
     )
 
-    if request.method=="POST":
+    if request.method == "POST":
 
-        correo=request.form[
+        correo = request.form[
             "correo"
         ]
 
         session[
             "usuario"
-        ]=correo
+        ] = correo
 
         return redirect(
             "/"
@@ -187,11 +186,65 @@ def login():
     )
 
 
-if __name__=="__main__":
+@app.route('/dashboard')
+def dashboard():
 
-    print(
-        os.getcwd()
+    cantidad = len(
+        session.get(
+            "carrito",
+            []
+        )
     )
+
+    usuario = session.get(
+        "usuario",
+        "Invitado"
+    )
+
+    total = 0
+
+    for id in session.get(
+        "carrito",
+        []
+    ):
+
+        for p in productos_lista:
+
+            if p["id"] == id:
+
+                total += p["precio"]
+
+    return render_template(
+
+        "dashboard.html",
+
+        cantidad=cantidad,
+
+        usuario=usuario,
+
+        productos=productos_lista,
+
+        total=total
+
+    )
+
+
+@app.route('/confirmar_pedido', methods=['POST'])
+def confirmar_pedido():
+
+    session["carrito"] = []
+
+    return """
+    <script>
+        alert("🎉 ¡Pedido confirmado con éxito!");
+        window.location.href="/productos";
+    </script>
+    """
+
+
+if __name__ == "__main__":
+
+    print(os.getcwd())
 
     app.run(
         host="0.0.0.0",
